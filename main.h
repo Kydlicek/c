@@ -5,12 +5,13 @@
 #include <array>
 #include <string>
 #include <new>
+#include <limits>
 using namespace std;
 
 
 
 struct person{
-    int age;
+    string age;
     string firstName;
     string lastName;
 };
@@ -45,52 +46,53 @@ void sortName(unsigned int idx, person array[]){
 }
 
 //checks input for int
-int validateInt(){
-   unsigned int age;
-    //while loop until input is valid int
-    while (!(cin >> age))
-    {
-        cin.clear();
-        cin.ignore(123, '\n');
-        cout << "Invalid input; please re-enter number.\n";
-    }
-    return age;
+bool validateNumber(const std::string& num)
+{
+    return !num.empty() && find_if(num.begin(), 
+    num.end(), [](unsigned char c) { return !isdigit(c); }) == num.end();
 }
 
-//checks all characters in string for letters
-bool valChars(const std::string s)
-{
-    for (const char c : s) {
+//checks input for string
+bool validateString(string name){
+    for (const char c : name) {
         if (!isalpha(c))
             return false;
     }
 
     return true;
 }
-
-//checks input for string
-string validateString(){
-    string name;
-    cin >> name;
-    //while loop until input is valid
-    while (!valChars(name))
-    {
-        cout << "Invalid input; please re-enter string.\n";
-        cin >> name;
-    }
-    return name;
-}
 // input form for creating user
 void inUser(unsigned int i,person arr[]){
     // user input
     cout << "input age" << endl;
-    arr[i].age = validateInt();
 
-    cout << "input first name" << endl;
-    arr[i].firstName = validateString();
 
-    cout << "input last name" << endl;
-    arr[i].lastName = validateString();
+    string age,firstname,lastname = "0";
+
+
+    while(!validateNumber(age)) {
+        cout << "input age" << endl;
+        cin >> age;
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+    while(!validateString(firstname)) {
+        cout << "input first name" << endl;
+        cin >> firstname;
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+    while(!validateString(lastname)) {
+        cout << "input second name" << endl;
+        cin >> lastname;
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    arr[i].age = age;
+    arr[i].firstName = firstname;
+    arr[i].lastName = lastname;
 }
 //adds user to array
 bool addUser(unsigned int &idx,int size,person array[], bool test){

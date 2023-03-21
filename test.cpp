@@ -12,13 +12,6 @@ using namespace std;
 //preplneni seznamu
 //smazani uzivatele
 
-bool tryReadInt(std::iostream& stream, unsigned int& result) {
-    return bool(stream >> result);
-}
-bool tryReadString(std::iostream& stream, string& result) {
-    return bool(stream >> result);
-}
-
 
 int main()
 {
@@ -36,18 +29,36 @@ int main()
     }
     testAddUserToFullList(els, size, array);
     testDeleteUserFromFullList(els, array);
-    
-}
-void testWrongInput(){
-    ostringstream out;
-    istringstream in("Strawberry 4321");
+    testWrongInputName("Pepa");
+    testWrongInputNumber("4124");
 
-    in >> one;
-    out << one;
-    if( out.str() == "Strawberry                     4321")
-    cout << "Success";
-}
+    cout << "//////////////" << endl;
+    cout << "DUMMY FUNCTION" << endl;
+    cout << "//////////////" << endl;
+    cout << "" << endl;
 
-void dummy(){
+    testWrongInputName("213");
+    testWrongInputNumber("sara");
+    addUser(els, size, array, true) ? cout << "USER ADDED" << endl : cout << "USER NOT ADDED" << endl;
+    cout << "" << endl;
+    cout << "ELEMENTS IN ARRAY " << els << " FROM SIZE OF " << size << endl;
+    cout << "" << endl;
+    testAddUserToFullList(els, size, array);
+    array[0] = {"20", "Adam", "Blecha"};
+    array[1] = {"18", "Cecílie", "Mašková"};
+    array[2] = {"21", "Denisa", "Čentešová"};
+    array[3] = {"30", "Emil", "Brko"};
+    array[4] = {"12", "Gabriela", "Vrbová"};
+
+    sortAge(els, array);
+    cout << "" << endl;
+    sortName(els, array);
+
 
 }
+// void testWrongInptString(){
+//     validateString();
+//     cout << "FALSE" << endl;
+//     cout << "TRUE" << endl;
+
+// }

@@ -45,3 +45,18 @@ void testAddUserToFullList(unsigned int &els,int size,person array[]){
     }
     cout << "" << endl;
 }
+void testWrongInputName(string testVar){
+    string valid;
+    validateString(testVar) ? valid = "TRUE INPUT IS VALID STRING" : valid = "FALSE INPUT IS NOT VALID STRING";
+    cout << "Test Wrong Input String : value = " << testVar << endl;
+    cout << valid <<  endl;
+    cout << "" << endl;
+}
+
+void testWrongInputNumber(string testVar){
+    string valid;
+    validateNumber(testVar) ? valid = "TRUE STRING IS NUMBER" : valid = "FALSE STRING IS NOT NUMBER";
+    cout << "Test Wrong Input Number : value = " << testVar  << endl;
+    cout << valid <<  endl;
+    cout << "" << endl;
+}
