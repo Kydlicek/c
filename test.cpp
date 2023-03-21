@@ -56,9 +56,3 @@ int main()
 
 
 }
-// void testWrongInptString(){
-//     validateString();
-//     cout << "FALSE" << endl;
-//     cout << "TRUE" << endl;
-
-// }

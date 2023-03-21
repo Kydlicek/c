@@ -63,11 +63,10 @@ bool validateString(string name){
 }
 // input form for creating user
 void inUser(unsigned int i,person arr[]){
-    // user input
-    cout << "input age" << endl;
-
-
-    string age,firstname,lastname = "0";
+    
+    string firstname = "0";
+    string lastname = "0";
+    string age = "none";
 
 
     while(!validateNumber(age)) {

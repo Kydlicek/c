@@ -18,6 +18,7 @@ int main()
     //playground
     addUser(els, size, array, false);
     addUser(els, size, array, false);
+    addUser(els, size, array, false);
     delUser(els, array, false);
     sortAge(els, array);
     sortName(els, array);
